@@ -1,6 +1,8 @@
-from urllib.request import urlopen
 from bs4 import BeautifulSoup #for html snippet parsing
 from PIL import Image, ImageFont, ImageDraw #for image manipulation. To install: pip3 install pillow
+import shutil
+import tempfile
+import urllib.request
 
 # Given a font, wrap text into a given set of dimensions
 #   see https://stackoverflow.com/a/62418837
@@ -29,13 +31,13 @@ def text_wrap(text,font,writing,max_width,max_height):
 
 # Given a URL, return the parsed HTML tag soup
 def get_tag_soup(url):
-    htmlText = urlopen(url).read()
+    htmlText = urllib.request.urlopen(url).read()
     return BeautifulSoup(htmlText, features="html.parser")
 
 # Given an apod HTML tag soup, return the apod image title
 def get_apod_title(soup):
-    centerWithTitle = soup.body.find_all('center')[1]
-    title = centerWithTitle.find_all('b')[0]
+    center_with_title = soup.body.find_all('center')[1]
+    title = center_with_title.find_all('b')[0]
     return title.get_text(" ", strip=True)
 
 # Given an apod HTML tag soup, return the apod image explanation
@@ -59,9 +61,25 @@ def get_apod_explanation(soup):
     explanation = text[location:endLocation]
     return explanation
 
+# Determine file that needs downloading
+def get_apod_fullsize_image_url(soup):
+    center_with_fullsize_image = soup.body.find_all('center')[0]
+    fullsize_image_path = center_with_fullsize_image.find_all('a')[1].get('href')
+    return 'https://apod.nasa.gov/apod/' + fullsize_image_path
+
 tag_soup = get_tag_soup('https://apod.nasa.gov/apod/')
+fullsize_url = get_apod_fullsize_image_url(tag_soup)
 apod_title = get_apod_title(tag_soup)
 apod_explanation = get_apod_explanation(tag_soup)
+
+with urllib.request.urlopen(fullsize_url) as response:
+    with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
+        shutil.copyfileobj(response, tmp_file)
+
+# TODO: figure out how to show where this temp file is
+# see https://docs.python.org/3/howto/urllib2.html
+# see https://docs.python.org/3/library/tempfile.html#tempfile.TemporaryFile
+#print( 'temp file location: ' + tmp_file )
 
 bg = Image.open('/private/tmp/file.jpg')
 writing = ImageDraw.Draw(bg)
