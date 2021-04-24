@@ -6,9 +6,9 @@ Usage:
 
 Requirements:
  - Homebrew ( /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" )
- - Python 3 (brew install python3)
- - BeautifulSoup (pip3 install beautifulsoup4)
- - Pillow (pip3 install pillow)
+ - Python 3 ( brew install python3 )
+ - BeautifulSoup ( pip3 install beautifulsoup4 )
+ - Pillow ( pip3 install pillow )
 
 TODO:
  - Port apod.command functionality to apodgrab.py
