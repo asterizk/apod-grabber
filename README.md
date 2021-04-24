@@ -5,6 +5,7 @@ Usage:
  python3 apodgrab.py
 
 Requirements:
+ - Python 3 (brew install python3)
  - BeautifulSoup (pip3 install beautifulsoup4)
  - Pillow (pip3 install pillow)
 
