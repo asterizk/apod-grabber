@@ -5,7 +5,7 @@ Usage:
  python3 apodgrab.py
 
 Requirements:
- - Homebrew ( /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" )
+ - Homebrew ( see install instructions at https://brew.sh/ )
  - Python 3 ( brew install python3 )
  - BeautifulSoup ( pip3 install beautifulsoup4 )
  - Pillow ( pip3 install pillow )
