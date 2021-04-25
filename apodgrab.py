@@ -76,22 +76,32 @@ with urllib.request.urlopen(fullsize_url) as response:
     with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
         shutil.copyfileobj(response, tmp_file)
 
-# TODO: figure out how to show where this temp file is
-# see https://docs.python.org/3/howto/urllib2.html
-# see https://docs.python.org/3/library/tempfile.html#tempfile.TemporaryFile
-#print( 'temp file location: ' + tmp_file )
+#print('download url: ' + fullsize_url)
+#print('temp file location: ' + tmp_file.name)
 
-bg = Image.open('/private/tmp/file.jpg')
+bg = Image.open(tmp_file.name)
+print('Image is ' + str(bg.width) + ' x ' + str(bg.height))
 writing = ImageDraw.Draw(bg)
 
-title_font = ImageFont.truetype("Arial Black.ttf", size=42)
-desc_font = ImageFont.truetype("Arial Narrow Italic.ttf", size=28)
+image_area = bg.width * bg.height
+title_font_size_factor = 27106
+desc_font_size_factor = 50000
+title_font_size = int(image_area/title_font_size_factor)
+desc_font_size = int(image_area/desc_font_size_factor)
 
-# width, height
-explanation_wrapped = text_wrap(apod_explanation,desc_font,writing,1000,500)
+#desc_width = bg.width
+
+# The font sized used is a factor of the overall area of the source image
+title_font = ImageFont.truetype("Arial Black.ttf", size=title_font_size)
+desc_font = ImageFont.truetype("Arial Narrow Italic.ttf", size=desc_font_size)
+
+# The dimensions of the text box are a factor of the source image
+explanation_wrapped = text_wrap(apod_explanation,desc_font,writing,int(bg.width * 0.25),int(bg.height * 0.7))
 
 # write title and explanation
-writing.text((20,5),apod_title,font=title_font)
-writing.text((140,120),explanation_wrapped,font=desc_font)
+writing.text(((int(bg.width * 0.02),int(bg.height * 0.05))),apod_title,font=title_font)
+
+# The offset of the text box from the upper left corner is a factor of the source image dimensions
+writing.text((int(bg.width * 0.05),(int(bg.height * 0.12))),explanation_wrapped,font=desc_font)
 
 bg.show()
