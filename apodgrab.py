@@ -1,8 +1,8 @@
-from bs4 import BeautifulSoup #for html snippet parsing
-from PIL import Image, ImageFont, ImageDraw #for image manipulation. To install: pip3 install pillow
-import shutil
-import tempfile
-import urllib.request
+from bs4 import BeautifulSoup # for html snippet parsing
+from PIL import Image, ImageFont, ImageDraw # for image manipulation. To install: pip3 install pillow
+import shutil # for file copy
+import tempfile # for generating temp files
+import urllib.request # for downloading from internet
 
 # Given a font, wrap text into a given set of dimensions
 #   see https://stackoverflow.com/a/62418837
