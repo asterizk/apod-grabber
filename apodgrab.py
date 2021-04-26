@@ -80,14 +80,15 @@ with urllib.request.urlopen(fullsize_url) as response:
 #print('temp file location: ' + tmp_file.name)
 
 bg = Image.open(tmp_file.name)
+#bg = Image.open('/var/folders/qy/bpj3cz615s30nhrw3q90hrfr0000gp/T/tmp1np2w9gk')
 print('Image is ' + str(bg.width) + ' x ' + str(bg.height))
 writing = ImageDraw.Draw(bg)
 
 image_area = bg.width * bg.height
-title_font_size_factor = 27106
-desc_font_size_factor = 50000
-title_font_size = int(image_area/title_font_size_factor)
-desc_font_size = int(image_area/desc_font_size_factor)
+title_font_size_factor = 0.026
+desc_font_size_factor = 0.018
+title_font_size = int(bg.width * title_font_size_factor)
+desc_font_size = int(bg.width * desc_font_size_factor)
 
 #desc_width = bg.width
 
