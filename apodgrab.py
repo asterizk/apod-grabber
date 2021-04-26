@@ -84,7 +84,6 @@ bg = Image.open(tmp_file.name)
 print('Image is ' + str(bg.width) + ' x ' + str(bg.height))
 writing = ImageDraw.Draw(bg)
 
-image_area = bg.width * bg.height
 title_font_size_factor = 0.026
 desc_font_size_factor = 0.018
 title_font_size = int(bg.width * title_font_size_factor)
