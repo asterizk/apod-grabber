@@ -12,13 +12,13 @@ Utility to set the Mac desktop to the current NASA astronomy photo of the day, i
  - Pillow ( pip3 install pillow )
 
 # Installation:
- 1. Copy `dependencies/com.krishengreenwell.apod.plist` to `~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
+ 1. Copy `dependencies/com.krishengreenwell.apod.plist` to `~/Library/LaunchAgents/`
  2. Open `~/Library/LaunchAgents/com.krishengreenwell.apod.plist` in your favorite text editor
  3. Change line 8 to the absolute path of your `apod-grabber` GitHub checkout and save the file
  4. In Terminal:
     - `launchctl load ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
     - `launchctl start com.krishengreenwell.apod`
- 5. Grant the following two permissions (folder shown in first screenshot may vary based on the location of your `apod-grabber` GitHub checkout):
+ 5. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
     - ![documents folder permission request](docs/python3-documents-folder.png)
     - ![finder permission request](docs/python3-finder.png)
 
