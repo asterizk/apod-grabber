@@ -30,6 +30,7 @@ Sets the Mac desktop to the current NASA Astronomy Photo of the Day ('apod'), in
 # TODO:
  - Get rid of apodosa.sh if possible
  - Decide install location in order to get rid of home directory dependency in `dependencies/com.krishengreenwell.apod.plist`
+ - Create installer
 
 # Feature ideas:
  - Option to turn off captions
