@@ -23,7 +23,7 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
  5. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
     - ![documents folder permission request](docs/python3-documents-folder.png)
     - ![finder permission request](docs/python3-finder.png)
- 6. Go to System Preferences > Desktop and select `Fit to Screen` and black background color
+ 6. Go to System Preferences > Desktop and select `Fit to Screen` and black background color:
     - ![system preferences desktop preference pane](docs/desktop-fit-to-screen-and-black-background.png)
 
 # Notes:
