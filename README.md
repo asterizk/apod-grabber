@@ -13,7 +13,7 @@ Requirements:
 TODO:
  - Port apod.command functionality to apodgrab.py
  - Get rid of apodosa.sh if possible
- - Adapt com.krishengreenwell.apod.plist to work with Python version script rather than perl
+ - Adapt com.krishengreenwell.apod.plist to work with Python script rather than perl
 
 Feature ideas:
  - Archive captioned images
