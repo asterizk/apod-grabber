@@ -4,10 +4,12 @@
 <dict>
     <key>Label</key>
     <string>com.krishengreenwell.apod</string>
+    <key>WorkingDirectory</key>
+    <string>/Users/kgreenwell/Documents/GitHub/apod-grabber/</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/usr/bin/perl</string>
-        <string>/Users/kgreenwell/Projects/Personal/apod/apod.command</string>
+        <string>/usr/local/bin/python3</string>
+        <string>apodgrab.py</string>
     </array>
 	<key>LowPriorityIO</key>
 	<true/>
