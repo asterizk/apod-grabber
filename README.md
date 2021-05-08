@@ -28,7 +28,7 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
 
 # Notes:
  - Captioned APOD images can be found at `$TMPDIR/apod/`
- - Very much a work in progress! Please be patient/forgiving.
+ - Very much a work in progress! Please be patient/forgiving. If something doesn't look right, please [file an issue](https://github.com/asterizk/apod-grabber/issues/new)
  
 # TODO:
  - Get rid of apodosa.sh if possible
