@@ -22,5 +22,7 @@
 		<key>Minute</key>
 		<integer>10</integer>
 	</dict>
+	<key>RunAtLoad</key>
+    <true/>
 </dict>
 </plist>
