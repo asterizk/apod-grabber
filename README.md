@@ -1,3 +1,5 @@
+![Example image created by apod-grabber](docs/2021-05-08.png)
+
 apod-grabber
 ============
 Sets the Mac desktop to the current NASA Astronomy Photo of the Day ('apod'), including explanation text overlaid onto image.
