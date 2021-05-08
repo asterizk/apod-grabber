@@ -2,7 +2,7 @@
 
 apod-grabber
 ============
-Sets the Mac desktop to the current NASA Astronomy Photo of the Day ('apod'), including explanation text overlaid onto image.
+Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://apod.nasa.gov/apod/), including explanation text overlaid onto image.
 
 # Usage:
  - `python3 apodgrab.py`
