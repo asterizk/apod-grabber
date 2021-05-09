@@ -17,16 +17,15 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
  - Pillow ( pip3 install pillow )
 
 # Installation:
- 1. Copy `dependencies/com.krishengreenwell.apod.plist` to `~/Library/LaunchAgents/`
- 2. Open `~/Library/LaunchAgents/com.krishengreenwell.apod.plist` in your favorite text editor
- 3. Change line 8 to the absolute path of your `apod-grabber` GitHub checkout and save the file
- 4. In Terminal:
-    - `launchctl load ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
-    - `launchctl start com.krishengreenwell.apod`
- 5. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
+ 1. `cp dependencies/com.krishengreenwell.apod.plist ~/Library/LaunchAgents`
+ 3. `vi ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
+ 4. Change line 8 to the absolute path to your `apod-grabber` GitHub checkout
+ 5. `launchctl load ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
+ 6. `launchctl start com.krishengreenwell.apod`
+ 7. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
     - ![documents folder permission request](docs/python3-documents-folder.png)
     - ![finder permission request](docs/python3-finder.png)
- 6. Go to System Preferences > Desktop and select `Fit to Screen` and black background color:
+ 8. Go to System Preferences > Desktop and select `Fit to Screen` and black background color:
     - ![system preferences desktop preference pane](docs/desktop-fit-to-screen-and-black-background.png)
 
 # Notes:
