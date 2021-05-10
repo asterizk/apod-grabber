@@ -34,6 +34,7 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
  - Very much a work in progress! Please be patient/forgiving. If something doesn't look right, please [browse the existing issues](https://github.com/asterizk/apod-grabber/issues) or [file a new one](https://github.com/asterizk/apod-grabber/issues/new)
  
 # TODO:
+ - Create a lighter region under textbox to make it more readable in event of a busy background
  - Get rid of apodosa.sh if possible
  - Decide install location in order to get rid of home directory dependency in `dependencies/com.krishengreenwell.apod.plist`
  - Create installer
