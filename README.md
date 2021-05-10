@@ -20,12 +20,13 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
  1. `cp dependencies/com.krishengreenwell.apod.plist ~/Library/LaunchAgents`
  3. `vi ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
  4. Change line 8 to the absolute path to your `apod-grabber` GitHub checkout
- 5. `launchctl load ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
- 6. `launchctl start com.krishengreenwell.apod`
- 7. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
+ 5. Change line 11 to the absolute path to your `python3` installation (to find this, run `which python3`)
+ 6. `launchctl load ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
+ 7. `launchctl start com.krishengreenwell.apod`
+ 8. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
     - ![documents folder permission request](docs/python3-documents-folder.png)
     - ![finder permission request](docs/python3-finder.png)
- 8. Go to System Preferences > Desktop and select `Fit to Screen` and black background color:
+ 9. Go to System Preferences > Desktop and select `Fit to Screen` and black background color:
     - ![system preferences desktop preference pane](docs/desktop-fit-to-screen-and-black-background.png)
 
 # Notes:
