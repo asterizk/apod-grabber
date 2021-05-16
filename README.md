@@ -35,6 +35,7 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
  
 # TODO:
  - Create a lighter region under textbox to make it more readable in event of a busy background
+ - Perhaps choose a more permanent place than the temp directory to store the images -- seems I lost some after a few days
  - Get rid of apodosa.sh if possible
  - Decide install location in order to get rid of home directory dependency in `dependencies/com.krishengreenwell.apod.plist`
  - Create installer
