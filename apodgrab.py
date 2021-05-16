@@ -115,4 +115,6 @@ captionedImageFilePath = tmpdirname+'/apod/'+str(today)+'.png';
 bg.save(captionedImageFilePath)
 
 print('Setting the new desktop picture: ', captionedImageFilePath );
+# Potentially replace call to "apodosa.sh" with python inline call to osascript using subprocess/popen, like this: https://stackoverflow.com/a/431279/220970
+# TODO: research if better alternatives to popen
 subprocess.run([os.getcwd()+'/dependencies/apodosa.sh', captionedImageFilePath])
