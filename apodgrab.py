@@ -5,7 +5,7 @@ import shutil  # for file copy
 import tempfile  # for generating temp files
 import urllib.request  # for downloading from internet
 import subprocess  # to execute shell script
-import os  # to get current working directory, and make a new one
+import os  # to get current working directory, make a new one, and expand ~
 
 
 # Given a font, wrap text into a given set of dimensions
@@ -116,9 +116,12 @@ writing.text((int(bg.width * 0.05), (int(bg.height * 0.11))), explanation_wrappe
 
 # create a temporary directory using the context manager
 tmpdirname = tempfile.gettempdir()
-os.makedirs(tmpdirname + '/apod', exist_ok=True)
+# TODO: Make use of tmpdir vs archiving to '~/Pictures/apod/' a preference
+# os.makedirs(tmpdirname + '/apod', exist_ok=True)
+os.makedirs(os.environ['HOME'] + '/Pictures/apod', exist_ok=True)
 today = date.today()
-captionedImageFilePath = tmpdirname+'/apod/'+str(today)+'.png'
+# captionedImageFilePath = tmpdirname+'/apod/'+str(today)+'.png'
+captionedImageFilePath = os.environ['HOME'] + '/Pictures/apod/'+str(today)+'.png'
 bg.save(captionedImageFilePath)
 
 print('Setting the new desktop picture: ', captionedImageFilePath)

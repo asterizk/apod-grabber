@@ -30,7 +30,7 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
     - ![system preferences desktop preference pane](docs/desktop-fit-to-screen-and-black-background.png)
 
 # Notes:
- - Captioned APOD images can be found at `$TMPDIR/apod/`
+ - Captioned APOD images can be found at `~/Pictures/apod/`
  - Very much a work in progress! Please be patient/forgiving. If something doesn't look right, please [browse the existing issues](https://github.com/asterizk/apod-grabber/issues) or [file a new one](https://github.com/asterizk/apod-grabber/issues/new)
  
 # TODO:
