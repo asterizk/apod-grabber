@@ -43,3 +43,6 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 # Feature ideas:
  - Option to turn off captions
  - Make archiving of captioned APOD images a preference
+
+# Credits
+ - Inspired by Harold Bakker's "Astronomy Picture Of the Day to Desktop" utility -- http://www.haroldbakker.com/personal/apod.php
