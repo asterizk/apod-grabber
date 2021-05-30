@@ -2,7 +2,7 @@
 
 apod-grabber
 ============
-Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://apod.nasa.gov/apod/), including explanation text overlaid onto image.
+Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https://apod.nasa.gov/apod/), including explanation text overlaid onto image.
 
 # Usage:
 - Manual
@@ -25,13 +25,13 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
  7. `launchctl start com.krishengreenwell.apod`
  8. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
     - ![documents folder permission request](docs/python3-documents-folder.png)
-    - ![finder permission request](docs/python3-finder.png)
+    - ![finder permission request](docs/python3-system-events.png)
  9. Go to System Preferences > Desktop and select `Fit to Screen` and black background color:
     - ![system preferences desktop preference pane](docs/desktop-fit-to-screen-and-black-background.png)
 
 # Notes:
- - Captioned APOD images can be found at `~/Pictures/apod/`
  - Very much a work in progress! Please be patient/forgiving. If something doesn't look right, please [browse the existing issues](https://github.com/asterizk/apod-grabber/issues) or [file a new one](https://github.com/asterizk/apod-grabber/issues/new)
+ - Captioned APOD images are archived at `~/Pictures/apod/`
  
 # TODO:
  - Create a lighter region under textbox to make it more readable in event of a busy background
@@ -39,7 +39,7 @@ Sets the Mac desktop to the current [NASA Astronomy Photo of the Day](https://ap
  - Get rid of apodosa.sh if possible
  - Decide install location in order to get rid of home directory dependency in `dependencies/com.krishengreenwell.apod.plist`
  - Create installer
- - Set picture on all attached monitors rather than just the one with the menubar
 
 # Feature ideas:
  - Option to turn off captions
+ - Make archiving of captioned APOD images a preference
