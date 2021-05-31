@@ -46,4 +46,3 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 
 # Credits
  - Inspired by Harold Bakker's "Astronomy Picture Of the Day to Desktop" utility -- http://www.haroldbakker.com/personal/apod.php
- - APOD creators/editors Robert Nemiroff and Jerry Bonnell, Friends of APOD, and of course, NASA.
