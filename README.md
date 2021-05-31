@@ -19,8 +19,8 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 # Installation:
  1. `cp dependencies/com.krishengreenwell.apod.plist ~/Library/LaunchAgents`
  3. `vi ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
- 4. Change line 8 to the absolute path to your `apod-grabber` GitHub checkout
- 5. Change line 11 to the absolute path to your `python3` installation (to find this, run `which python3`)
+ 4. Change line 8 to the absolute path of your `apod-grabber` GitHub checkout
+ 5. Change line 11 to the absolute path of your `python3` installation (to find this, run `which python3`)
  6. `launchctl load ~/Library/LaunchAgents/com.krishengreenwell.apod.plist`
  7. `launchctl start com.krishengreenwell.apod`
  8. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
