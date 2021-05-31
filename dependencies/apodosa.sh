@@ -1,3 +1,5 @@
+#!/bin/sh
+
 /usr/bin/osascript <<END
 -- Adapted from https://stackoverflow.com/a/19608773/220970
 tell application "System Events"
