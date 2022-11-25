@@ -32,7 +32,7 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 # Notes:
  - Captioned APOD images can be found at `~/Pictures/apod/`
  - Very much a work in progress! Please be patient/forgiving. If something doesn't look right, please [browse the existing issues](https://github.com/asterizk/apod-grabber/issues) or [file a new one](https://github.com/asterizk/apod-grabber/issues/new)
- 
+
 # TODO:
  - Create a lighter region under textbox to make it more readable in event of a busy background
  - Get rid of apodosa.sh if possible
@@ -42,6 +42,9 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 
 # Feature ideas:
  - Option to turn off captions
+
+# Troubleshooting
+ - If apod-grabber stops updating your desktop picture automatically, try re-running "pip3 install beautifulsoup4".
 
 # Credits
  - Inspired by Harold Bakker's "Astronomy Picture Of the Day to Desktop" utility -- https://web.archive.org/web/20200221005113/http://www.haroldbakker.com/personal/apod.php
