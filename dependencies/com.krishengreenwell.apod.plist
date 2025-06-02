@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Label</key>
-    <string>com.krishengreenwell.apod</string>
-    <key>WorkingDirectory</key>
-    <string>/Users/kgreenwell/Documents/GitHub/apod-grabber/</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/usr/local/bin/python3</string>
-        <string>apodgrab.py</string>
-    </array>
+	<key>Label</key>
+	<string>com.krishengreenwell.apod</string>
 	<key>LowPriorityIO</key>
 	<true/>
 	<key>Nice</key>
 	<integer>1</integer>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/local/bin/fdautil</string>
+		<string>exec</string>
+		<string>/Users/asterizk/Projects/GitHub/apod-env/bin/python</string>
+		<string>apodgrab.py</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/tmp/com.krishengreenwell.apod.err</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/com.krishengreenwell.apod.out</string>
 	<key>StartCalendarInterval</key>
-	<dict>  
+	<dict>
 		<key>Hour</key>
 		<integer>3</integer>
 		<key>Minute</key>
 		<integer>10</integer>
 	</dict>
-	<key>RunAtLoad</key>
-    <true/>
+	<key>WorkingDirectory</key>
+	<string>/Users/asterizk/Projects/GitHub/apod-grabber</string>
 </dict>
 </plist>
