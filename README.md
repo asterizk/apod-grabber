@@ -13,8 +13,10 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 # Requirements:
  - Homebrew ( see install instructions at https://brew.sh/ )
  - Python 3 ( brew install python3 )
- - BeautifulSoup ( pip3 install beautifulsoup4 )
- - Pillow ( pip3 install pillow )
+ - Python Virtual Environment ( python3 -m venv ~/Projects/GitHub/apod-env && source ~/Projects/GitHub/apod-env/bin/activate )
+ - BeautifulSoup ( pip install beautifulsoup4 )
+ - Pillow ( pip install pillow )
+ - LaunchControl ( https://soma-zone.com/LaunchControl/ )
 
 # Installation:
  1. `cp dependencies/com.krishengreenwell.apod.plist ~/Library/LaunchAgents`
@@ -31,7 +33,7 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 
 # Notes:
  - Captioned APOD images can be found at `~/Pictures/apod/`
- - Very much a work in progress! Please be patient/forgiving. If something doesn't look right, please [browse the existing issues](https://github.com/asterizk/apod-grabber/issues) or [file a new one](https://github.com/asterizk/apod-grabber/issues/new)
+ - A work in progress! If something doesn't look right, please [browse the existing issues](https://github.com/asterizk/apod-grabber/issues) or [file a new one](https://github.com/asterizk/apod-grabber/issues/new)
 
 # TODO:
  - Create a lighter region under textbox to make it more readable in event of a busy background
