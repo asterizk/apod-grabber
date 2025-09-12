@@ -11,28 +11,29 @@ import os  # to get current working directory, make a new one, and expand ~
 # Given a font, wrap text into a given set of dimensions
 #   see https://stackoverflow.com/a/62418837
 def text_wrap(text, font, writing, max_width, max_height):
+    def _dims(s):
+        l, t, r, b = writing.multiline_textbbox((0, 0), s, font=font)
+        return (r - l, b - t)
+
+    def _composed():
+        return '\n'.join(' '.join(line) for line in lines if line)
     lines = [[]]
     words = text.split()
     for word in words:
         # try putting this word in last line then measure
         lines[-1].append(word)
-        bbox = writing.multiline_textbbox((0, 0), text, font=font)
-        width = bbox[2] - bbox[0]
-        height = bbox[3] - bbox[1]
-        if width > max_width:  # too wide
-            # take it back out, put it on the next line, then measure again
-            lines.append([lines[-1].pop()])
-            bbox = writing.multiline_textbbox((0, 0), text, font=font)
-            width = bbox[2] - bbox[0]
-            height = bbox[3] - bbox[1]
-            if height > max_height:  # too high now, cannot fit this word in, so take out - add ellipses
+        w, h = _dims(_composed())
+        if w > max_width:
+            moved = lines[-1].pop()
+            lines.append([moved])
+            w, h = _dims(_composed())
+            if h > max_height:
                 lines.pop()
-                # try adding ellipses to last word fitting (i.e. without a space)
                 lines[-1][-1] += '...'
-                # keep checking that this doesn't make the textbox too wide, 
-                # if so, cycle through previous words until the ellipses can fit
-                while writing.multiline_textbbox('\n'.join([' '.join(line)
-                                                            for line in lines]), font=font)[0] > max_width:
+                while True:
+                    w, h = _dims(_composed())
+                    if w <= max_width or len(lines[-1]) == 1:
+                        break
                     lines[-1].pop()
                     lines[-1][-1] += '...'
                 break
@@ -80,7 +81,6 @@ def get_apod_fullsize_image_url(soup):
     center_with_fullsize_image = soup.body.find_all('center')[0]
     fullsize_image_path = center_with_fullsize_image.find_all('a')[1].get('href')
     return 'https://apod.nasa.gov/apod/' + fullsize_image_path
-
 
 tag_soup = get_tag_soup('https://apod.nasa.gov/apod/')
 fullsize_url = get_apod_fullsize_image_url(tag_soup)
