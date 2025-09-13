@@ -12,7 +12,7 @@
 	<array>
 		<string>/usr/local/bin/fdautil</string>
 		<string>exec</string>
-		<string>/Users/asterizk/Projects/GitHub/apod-env/bin/python</string>
+		<string>/Users/asterizk/Projects/GitHub/apod-grabber/.venv/bin/python</string>
 		<string>apodgrab.py</string>
 	</array>
 	<key>RunAtLoad</key>
