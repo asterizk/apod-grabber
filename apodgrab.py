@@ -7,7 +7,6 @@ import urllib.request  # for downloading from internet
 import subprocess  # to execute shell script
 import os  # to get current working directory, make a new one, and expand ~
 
-
 # Given a font, wrap text into a given set of dimensions
 #   see https://stackoverflow.com/a/62418837
 def text_wrap(text, font, writing, max_width, max_height):
@@ -82,6 +81,64 @@ def get_apod_fullsize_image_url(soup):
     fullsize_image_path = center_with_fullsize_image.find_all('a')[1].get('href')
     return 'https://apod.nasa.gov/apod/' + fullsize_image_path
 
+
+def set_wallpaper_macos_all(image_path: str):
+    """
+    1) Set the wallpaper on ALL desktops (all monitors/spaces) via System Events.
+    2) Style the active Space via AppKit: Fit-to-Screen, no clipping, black background.
+    """
+    path = os.path.abspath(image_path)
+    safe_path = path.replace('"', '\\"')  # escape double-quotes for AppleScript
+
+    # --- Step 1: AppleScript (all desktops / all displays) ---
+    ascript = (
+        'tell application "System Events"\n'
+        f'  set p to "{safe_path}"\n'
+        '  set ds to a reference to every desktop\n'
+        '  repeat with d in ds\n'
+        '    set picture of contents of d to p\n'
+        '    delay 0.1\n'
+        '  end repeat\n'
+        'end tell'
+    )
+    try:
+        subprocess.run(
+            ["/usr/bin/osascript", "-e", ascript],
+            check=True,
+            text=True,
+            capture_output=True,
+        )
+        print("Wallpaper image applied to all desktops (AppleScript).")
+    except subprocess.CalledProcessError as e:
+        print("AppleScript step failed; continuing:", e.stderr or e.stdout or repr(e))
+
+    # --- Step 2: PyObjC styling (current Space only) ---
+    try:
+        from AppKit import (
+            NSWorkspace, NSScreen, NSColor,
+            NSWorkspaceDesktopImageScalingKey,
+            NSWorkspaceDesktopImageAllowClippingKey,
+            NSWorkspaceDesktopImageFillColorKey,
+            NSImageScaleProportionallyUpOrDown,
+        )
+        from Foundation import NSURL
+
+        ws = NSWorkspace.sharedWorkspace()
+        url = NSURL.fileURLWithPath_(path)
+        options = {
+            NSWorkspaceDesktopImageScalingKey: NSImageScaleProportionallyUpOrDown,  # "Fit to Screen"
+            NSWorkspaceDesktopImageAllowClippingKey: False,                          # don't crop
+            NSWorkspaceDesktopImageFillColorKey: NSColor.blackColor(),               # black bars
+        }
+        for screen in NSScreen.screens():
+            ok, err = ws.setDesktopImageURL_forScreen_options_error_(url, screen, options, None)
+            if not ok:
+                raise RuntimeError(err)
+        print("Applied Fit-to-Screen + black background (PyObjC).")
+    except Exception as e:
+        print("PyObjC styling step skipped/fell back:", repr(e))
+
+# Start main script
 tag_soup = get_tag_soup('https://apod.nasa.gov/apod/')
 fullsize_url = get_apod_fullsize_image_url(tag_soup)
 apod_title = get_apod_title(tag_soup)
@@ -129,9 +186,5 @@ captionedImageFilePath = os.environ['HOME'] + '/Pictures/apod/'+str(today)+'.png
 bg.save(captionedImageFilePath)
 
 print('Setting the new desktop picture: ', captionedImageFilePath)
-# Potentially replace call to "apodosa.sh" with python inline call to osascript using subprocess/popen,
-# like this: https://stackoverflow.com/a/431279/220970
-# TODO: research if better alternatives to popen
-# TODO: Set desktop picture on all attached monitors. Note, using System Events (see
-#       https://stackoverflow.com/a/6738885/220970 ) only works if computer is unlocked
-subprocess.run([os.getcwd()+'/dependencies/apodosa.sh', captionedImageFilePath])
+set_wallpaper_macos_all(captionedImageFilePath)         # apply scaling/bg to current Space
+

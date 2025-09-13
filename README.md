@@ -13,9 +13,8 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 # Requirements:
  - Homebrew ( see install instructions at https://brew.sh/ )
  - Python 3 ( brew install python3 )
- - Python Virtual Environment ( python3 -m venv ~/Projects/GitHub/apod-env && source ~/Projects/GitHub/apod-env/bin/activate )
- - BeautifulSoup ( pip install beautifulsoup4 )
- - Pillow ( pip install pillow )
+ - Python Virtual Environment (from the apod-grabber directory: python3 -m venv .venv && source .venv/bin/activate )
+ - Install dependencies (python3 -m pip install -r requirements.txt)
  - LaunchControl ( https://soma-zone.com/LaunchControl/ )
 
 # Installation:
@@ -28,8 +27,6 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
  8. Grant the following two permissions ('Documents' may vary based on the location of your `apod-grabber` checkout):
     - ![documents folder permission request](docs/python3-documents-folder.png)
     - ![finder permission request](docs/python3-finder.png)
- 9. Go to System Preferences > Desktop and select `Fit to Screen` and black background color:
-    - ![system preferences desktop preference pane](docs/desktop-fit-to-screen-and-black-background.png)
 
 # Notes:
  - Captioned APOD images can be found at `~/Pictures/apod/`
@@ -37,10 +34,8 @@ Sets your Mac's desktop to the current [NASA Astronomy Photo of the Day](https:/
 
 # TODO:
  - Create a lighter region under textbox to make it more readable in event of a busy background
- - Get rid of apodosa.sh if possible
  - Decide install location in order to get rid of home directory dependency in `dependencies/com.krishengreenwell.apod.plist`
  - Create installer
- - Set picture on all attached monitors rather than just the one with the menubar
 
 # Feature ideas:
  - Option to turn off captions
